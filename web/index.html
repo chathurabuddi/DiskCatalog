@@ -5,12 +5,53 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
+    <head lang="en">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add New CD</title>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+        <!--Import custom styles-->
+        <link type="text/css" rel="stylesheet" href="css/styles.css" media="screen,projection"/>
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <!-- Navigation Menu -->
+        <div class="navbar-fixed">
+            <nav class="teal">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="index.html" class="brand-logo"><img src="images/logo.png" alt="logo"/></a>
+                        <ul id="nav-mobile" class="right side-nav">
+                            <li>
+                                <a href="AddCD.html">
+                                    <i class="mdi-content-add-circle-outline left"></i>
+                                    <b>ADD NEW&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="mdi-action-search left"></i>
+                                    <b>SEARCH&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="mdi-editor-mode-edit left"></i>
+                                    <b>MANAGE&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div><!-- End of Navigation Menu -->
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <!--Import materialize.js-->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
     </body>
 </html>
