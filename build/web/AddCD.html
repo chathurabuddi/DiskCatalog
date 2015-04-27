@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Add New CD</title>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+        <!--Import custom styles-->
+        <link type="text/css" rel="stylesheet" href="css/styles.css" media="screen,projection"/>
+    </head>
+    <body>
+
+        <!-- Navigation Menu -->
+        <div class="navbar-fixed">
+            <nav class="teal">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="index.html" class="brand-logo"><img src="images/logo.png" alt="logo"/></a>
+                        <ul id="nav-mobile" class="right side-nav">
+                            <li>
+                                <a href="AddCD.html">
+                                    <i class="mdi-content-add-circle-outline left"></i>
+                                    <b>ADD NEW&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="mdi-action-search left"></i>
+                                    <b>SEARCH&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="mdi-editor-mode-edit left"></i>
+                                    <b>MANAGE&nbsp;&nbsp;&nbsp;</b>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div><!-- End of Navigation Menu -->
+
+        <!-- Floating Button -->
+        <div class="container">
+            <div class="home-btn">
+                <a href="index.html" class="btn-floating btn-large waves-effect waves-light teal darken-2 btn tooltipped" data-position="left" data-delay="30" data-tooltip="Home"><i class="mdi-action-home"></i></a>
+            </div>
+        </div><!-- End of Floating Button -->
+
+        <!-- Add New CD Form Structure -->
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div id="patient-add-form">
+                        <div class="row">
+                            <h5 class="cd-title white-text teal center-on-small-only">
+                                <i class="small mdi-content-add-circle-outline left hide-on-small-only"></i> ADD NEW <b>DISK</b>
+                            </h5>
+                            <form class="col s12 grey lighten-4" id="cd-form" action="AddCD" method="post">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="mdi-av-queue-music teal-text prefix"></i>
+                                        <input id="title" type="text" name="title">
+                                        <label for="title">Title</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="mdi-action-account-circle teal-text prefix"></i>
+                                        <input id="artist" type="text" name="artist">
+                                        <label for="artist">Artist</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="mdi-action-language teal-text prefix"></i>
+                                        <input id="country" type="text" name="country">
+                                        <label for="country">Country</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="mdi-maps-local-atm teal-text prefix"></i>
+                                        <input id="price" type="text" name="price">
+                                        <label for="price">Price</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="mdi-action-event teal-text prefix"></i>
+                                        <input id="year" type="text" name="year">
+                                        <label for="year">Year</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn teal darken-2 waves-effect waves-light right" type="submit" name="action">Submit
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- End of Add New CD Form Structure -->
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <!--Import materialize.js-->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,93 @@
+/**
+ * Created by CHATHURA on 2015-02-10.
+ * Custom CSS
+ */
+
+/* Navigation menu */
+
+/* Tile Set */
+
+.tile{
+	padding-bottom: 15px !important;
+	padding-top: 10px !important;
+}
+
+.tile,
+.tile a{
+	color: #ffffff;
+}
+
+.tile a{
+	margin-bottom: 5px !important;
+}
+
+/* Floating Button */
+
+.home-btn{
+    position: relative;
+    z-index: 900;
+}
+
+.home-btn a{
+    right: 15px;
+    bottom: 15px;
+    position: fixed;
+}
+
+@media only screen and (min-width : 993px) {
+    .home-btn a{
+        right: 5%;
+    }
+}
+
+/* Search Dialog CSS */
+
+@media (min-width: 993px) { /* Large Devices */
+    .search-dialog-form{
+        padding: 0 10px;
+    }
+
+    .search-dialog-container{
+        background-color: #e0e0e0;
+    }
+}
+
+/* Add Patient CSS */
+
+.form-label{
+    font-size: small;
+    color: #999999;
+    text-transform: uppercase;
+}
+
+#patient-add-form{
+    margin: 30px;
+}
+
+.cd-title {
+    padding: 30px;
+    margin: 0px;
+}
+
+#cd-form{
+    padding-top: 40px;
+    border: 1px solid #009688;
+}
+
+@media (max-width: 600px) { /* Small Devices */
+    #patient-add-form{
+        margin: 0;
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 993px) { /* Large Devices */
+    #patient-add-form{
+        padding: 0 30px;
+    }
+    #cd-form{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
