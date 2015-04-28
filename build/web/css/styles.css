@@ -60,7 +60,7 @@
     text-transform: uppercase;
 }
 
-#patient-add-form{
+#cd-add-form{
     margin: 30px;
 }
 
@@ -75,14 +75,14 @@
 }
 
 @media (max-width: 600px) { /* Small Devices */
-    #patient-add-form{
+    #cd-add-form{
         margin: 0;
         padding-top: 30px;
     }
 }
 
 @media (min-width: 993px) { /* Large Devices */
-    #patient-add-form{
+    #cd-add-form{
         padding: 0 30px;
     }
     #cd-form{

@@ -5,6 +5,7 @@
  */
 package com.diskcatalog.servlets;
 
+import com.diskcatalog.helpers.CompactDisk;
 import com.diskcatalog.helpers.HtmlFragments;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,9 +39,12 @@ public class AddCD extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         HtmlFragments htmlfragments = new HtmlFragments();           
-        
+
         htmlfragments.printHeader(out, "Add New Disk");
         htmlfragments.printFlotingButton(out);
+        
+        CompactDisk compact_disk = new CompactDisk();
+        htmlfragments.printForm(out, "AddCD", "ADD NEW DISK", "Submit");
 
         htmlfragments.printFooter(out);
     }
