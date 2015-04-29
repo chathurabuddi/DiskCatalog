@@ -8,6 +8,7 @@ package com.diskcatalog.servlets;
 import com.diskcatalog.helpers.CompactDisk;
 import com.diskcatalog.helpers.CompactDiskDAO;
 import com.diskcatalog.helpers.CompactDiskJavaDBDAO;
+import com.diskcatalog.helpers.HtmlFragments;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author CHATHURA
  */
-public class AddCD extends HttpServlet {
+public class UpdateCDView extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,21 +36,19 @@ public class AddCD extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        CompactDisk compactDisk = new CompactDisk();
-        compactDisk.setDiskTitle(request.getParameter("title"));
-        compactDisk.setDiskArtist(request.getParameter("artist"));
-        compactDisk.setDiskCountry(request.getParameter("country"));
-        compactDisk.setDiskPrice(request.getParameter("price"));
-        compactDisk.setDiskYear(request.getParameter("year"));
+        HtmlFragments htmlFragments = new HtmlFragments();
+
+        htmlFragments.printHeader(out, "Update Disk");
+        htmlFragments.printFlotingButton(out);
         
         CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
-        if(compactDiskDAO.addCompactDisk(compactDisk)){
-            request.setAttribute("alert", "New Compact Disk was Successfully Added");
-        }else{
-            request.setAttribute("alert", "Error Occured! Please Try Again later");
-        }
-        request.getRequestDispatcher("AddCDView").forward(request, response);
+        CompactDisk compactDisk = compactDiskDAO.getByID(Integer.parseInt(request.getParameter("diskid")));
         
+        htmlFragments.printForm(out, "UpdateCD", "UPDATE EXISTING DISK", "Update", compactDisk);
+        if (request.getAttribute("alert") != null) {
+            htmlFragments.printAlert(out, request.getAttribute("alert").toString(), 4000);
+        }
+        htmlFragments.printFooter(out);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

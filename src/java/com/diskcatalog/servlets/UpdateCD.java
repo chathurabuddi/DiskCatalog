@@ -8,6 +8,7 @@ package com.diskcatalog.servlets;
 import com.diskcatalog.helpers.CompactDisk;
 import com.diskcatalog.helpers.CompactDiskDAO;
 import com.diskcatalog.helpers.CompactDiskJavaDBDAO;
+import com.diskcatalog.helpers.HtmlFragments;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author CHATHURA
  */
-public class AddCD extends HttpServlet {
+public class UpdateCD extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,6 +37,7 @@ public class AddCD extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         CompactDisk compactDisk = new CompactDisk();
+        compactDisk.setDiskId(Integer.parseInt(request.getParameter("id")));
         compactDisk.setDiskTitle(request.getParameter("title"));
         compactDisk.setDiskArtist(request.getParameter("artist"));
         compactDisk.setDiskCountry(request.getParameter("country"));
@@ -43,13 +45,12 @@ public class AddCD extends HttpServlet {
         compactDisk.setDiskYear(request.getParameter("year"));
         
         CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
-        if(compactDiskDAO.addCompactDisk(compactDisk)){
-            request.setAttribute("alert", "New Compact Disk was Successfully Added");
+        if(compactDiskDAO.updateCompactDisk(compactDisk)){
+            request.setAttribute("alert", "Compact Disk was Successfully Updated");
         }else{
             request.setAttribute("alert", "Error Occured! Please Try Again later");
         }
-        request.getRequestDispatcher("AddCDView").forward(request, response);
-        
+        request.getRequestDispatcher("ManageCDView").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

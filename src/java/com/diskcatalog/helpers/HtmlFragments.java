@@ -6,6 +6,7 @@
 package com.diskcatalog.helpers;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -31,7 +32,7 @@ public class HtmlFragments {
         header.append("<a href=\"index.html\" class=\"brand-logo\"><img src=\"images/logo.png\" alt=\"logo\"/></a>");
         header.append("<ul id=\"nav-mobile\" class=\"right side-nav\">");
 
-        header.append("<li><a href=\"AddCD.html\">");
+        header.append("<li><a href=\"AddCDView\">");
         header.append("<i class=\"mdi-content-add-circle-outline left\"></i>");
         header.append("<b>ADD NEW&nbsp;&nbsp;&nbsp;</b>\n</a>\n</li>");
 
@@ -39,7 +40,7 @@ public class HtmlFragments {
         header.append("<i class=\"mdi-action-search left\"></i>");
         header.append("<b>SEARCH&nbsp;&nbsp;&nbsp;</b></a></li>");
 
-        header.append("<li><a href=\"#\">");
+        header.append("<li><a href=\"ManageCDView\">");
         header.append("<i class=\"mdi-editor-mode-edit left\"></i>");
         header.append("<b>MANAGE&nbsp;&nbsp;&nbsp;</b></a></li>");
 
@@ -73,36 +74,38 @@ public class HtmlFragments {
         cd_form.append("<div class=\"container\"><div class=\"row\"><div class=\"col s12\">");
         cd_form.append("<div id=\"cd-add-form\"><div class=\"row\">");
         cd_form.append("<h5 class=\"cd-title white-text teal center-on-small-only\">");
-        cd_form.append("<i class=\"small mdi-content-add-circle-outline left hide-on-small-only\"></i> <b>" + title + "</b></h5>");
-        cd_form.append("<form class=\"col s12 grey lighten-4\" id=\"cd-form\" action=\"" + form_action + "\" method=\"post\">");
+        cd_form.append("<i class=\"small mdi-content-add-circle-outline left hide-on-small-only\"></i> <b>").append(title).append("</b></h5>");
+        cd_form.append("<form class=\"col s12 grey lighten-4\" id=\"cd-form\" action=\"").append(form_action).append("\" method=\"post\">");
+
+        cd_form.append("<input id=\"id\" type=\"hidden\" name=\"id\" value=\"").append(compactdisk.getDiskId()).append("\">");
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<i class=\"mdi-av-queue-music teal-text prefix\"></i>");
-        cd_form.append("<input id=\"title\" type=\"text\" name=\"title\" value=\"" + compactdisk.getDiskTitle() + "\">");
+        cd_form.append("<input id=\"title\" type=\"text\" name=\"title\" value=\"").append(compactdisk.getDiskTitle()).append("\">");
         cd_form.append("<label for=\"title\">Title</label>");
         cd_form.append("</div></div>");
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<i class=\"mdi-action-account-circle teal-text prefix\"></i>");
-        cd_form.append("<input id=\"artist\" type=\"text\" name=\"artist\" value=\"" + compactdisk.getDiskArtist() + "\">");
+        cd_form.append("<input id=\"artist\" type=\"text\" name=\"artist\" value=\"").append(compactdisk.getDiskArtist()).append("\">");
         cd_form.append("<label for=\"artist\">Artist</label>");
         cd_form.append("</div></div>");
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<i class=\"mdi-action-language teal-text prefix\"></i>");
-        cd_form.append("<input id=\"country\" type=\"text\" name=\"country\"  value=\"" + compactdisk.getDiskCountry() + "\">");
+        cd_form.append("<input id=\"country\" type=\"text\" name=\"country\"  value=\"").append(compactdisk.getDiskCountry()).append("\">");
         cd_form.append("<label for=\"country\">Country</label>");
         cd_form.append("</div></div>");
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<i class=\"mdi-maps-local-atm teal-text prefix\"></i>");
-        cd_form.append("<input id=\"price\" type=\"text\" name=\"price\" value=\"" + compactdisk.getDiskPrice() + "\">");
+        cd_form.append("<input id=\"price\" type=\"text\" name=\"price\" value=\"").append(compactdisk.getDiskPrice()).append("\">");
         cd_form.append("<label for=\"price\">Price</label>");
         cd_form.append("</div></div>");
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<i class=\"mdi-action-event teal-text prefix\"></i>");
-        cd_form.append("<input id=\"year\" type=\"text\" name=\"year\" value=\"" + compactdisk.getDiskYear()+ "\">");
+        cd_form.append("<input id=\"year\" type=\"text\" name=\"year\" value=\"").append(compactdisk.getDiskYear()).append("\">");
         cd_form.append("<label for=\"year\">Year</label>");
         cd_form.append("</div></div>");
 
@@ -121,11 +124,55 @@ public class HtmlFragments {
         printForm(out, form_action, title, button_lable, compact_disk);
     }
 
+    public void printAlert(PrintWriter out, String message, int delay) {
+        StringBuffer alert = new StringBuffer();
+
+        alert.append("<script type=\"text/javascript\">");
+        alert.append("function alert(){");
+        alert.append("Materialize.toast('").append(message).append("', ").append(delay).append(");");
+        alert.append("}onload = alert;");
+        alert.append("</script>");
+
+        out.println(alert);
+    }
+
+    public void printTable(PrintWriter out, ArrayList<CompactDisk> dataSet) {
+        StringBuffer table = new StringBuffer();
+
+        table.append("<div class=\"container\">");
+        table.append("<table class=\"bordered hoverable centered\">");
+        table.append("<thead><tr>");
+        table.append("<th class=\"hide-sm\">Disk ID</th>");
+        table.append("<th>Title</th>");
+        table.append("<th>Artist</th>");
+        table.append("<th class=\"hide-sm\">Country</th>");
+        table.append("<th class=\"hide-sm\">Price</th>");
+        table.append("<th class=\"hide-xs\">Year</th>");
+        table.append("<th>Manage</th>");
+        table.append("</tr></thead>");
+        table.append("<tbody>");
+
+        for (CompactDisk compactDisk : dataSet) {
+            table.append("<tr>");
+            table.append("<td class=\"hide-sm\">").append(compactDisk.getDiskId()).append("</td>");
+            table.append("<td>").append(compactDisk.getDiskTitle()).append("</td>");
+            table.append("<td>").append(compactDisk.getDiskArtist()).append("</td>");
+            table.append("<td class=\"hide-sm\">").append(compactDisk.getDiskCountry()).append("</td>");
+            table.append("<td class=\"hide-sm\">").append(compactDisk.getDiskPrice()).append("</td>");
+            table.append("<td class=\"hide-xs\">").append(compactDisk.getDiskYear()).append("</td>");
+            table.append("<td><a href=\"UpdateCDView?diskid=").append(compactDisk.getDiskId()).append("\">Update</a> | <a href=\"DeleteCD?diskid=").append(compactDisk.getDiskId()).append("\">Delete</a></td>");
+            table.append("</tr>");
+        }
+
+        table.append("</tbody></table></div>");
+        out.println(table);
+    }
+
     public void printFooter(PrintWriter out) {
         StringBuffer footer = new StringBuffer();
 
         footer.append("<script type=\"text/javascript\" src=\"js/jquery-2.1.1.min.js\"></script>");
-        footer.append("<script type=\"text/javascript\" src=\"js/materialize.min.js\"></script>");
+        footer.append("<script type=\"text/javascript\" src=\"js/materialize.js\"></script>");
         footer.append("<script type=\"text/javascript\" src=\"js/scripts.js\"></script>");
         footer.append("</body></html>");
 

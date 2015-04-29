@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>AddCDView</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.AddCDView</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddCD</servlet-name>
         <servlet-class>com.diskcatalog.servlets.AddCD</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageCDView</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.ManageCDView</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCD</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.UpdateCD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCDView</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.UpdateCDView</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCDView</servlet-name>
+        <url-pattern>/AddCDView</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddCD</servlet-name>
         <url-pattern>/AddCD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageCDView</servlet-name>
+        <url-pattern>/ManageCDView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCD</servlet-name>
+        <url-pattern>/UpdateCD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCDView</servlet-name>
+        <url-pattern>/UpdateCDView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
