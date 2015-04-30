@@ -13,7 +13,7 @@ and open the template in the editor.
         <!--Import custom styles-->
         <link type="text/css" rel="stylesheet" href="css/styles.css" media="screen,projection"/>
     </head>
-    <body>
+    <body onload="Materialize.showStaggeredList('#staggered')">
 
         <!-- Navigation Menu -->
         <div class="navbar-fixed">
@@ -47,6 +47,16 @@ and open the template in the editor.
                 </div>
             </nav>
         </div><!-- End of Navigation Menu -->
+
+        <div class="container">
+            <div id="image-set">
+                <ul id="staggered">
+                    <li><a href="AddCDView"><img class="responsive-img" src="images/add.jpg"></a></li>
+                    <li><a href="SearchCDView"><img class="responsive-img" src="images/search.jpg"></a></li>
+                    <li><a href="ManageCDView"><img class="responsive-img" src="images/manage.jpg"></a></li>
+                </ul>  
+            </div>
+        </div>
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
