@@ -20,6 +20,14 @@
         <servlet-name>UpdateCDView</servlet-name>
         <servlet-class>com.diskcatalog.servlets.UpdateCDView</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteCD</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.DeleteCD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchCDView</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.SearchCDView</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCDView</servlet-name>
         <url-pattern>/AddCDView</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>UpdateCDView</servlet-name>
         <url-pattern>/UpdateCDView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCD</servlet-name>
+        <url-pattern>/DeleteCD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchCDView</servlet-name>
+        <url-pattern>/SearchCDView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

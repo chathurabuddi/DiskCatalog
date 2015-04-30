@@ -36,7 +36,7 @@ public class HtmlFragments {
         header.append("<i class=\"mdi-content-add-circle-outline left\"></i>");
         header.append("<b>ADD NEW&nbsp;&nbsp;&nbsp;</b>\n</a>\n</li>");
 
-        header.append("<li><a href=\"#\">");
+        header.append("<li><a href=\"SearchCDView\">");
         header.append("<i class=\"mdi-action-search left\"></i>");
         header.append("<b>SEARCH&nbsp;&nbsp;&nbsp;</b></a></li>");
 
