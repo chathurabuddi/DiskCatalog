@@ -33,7 +33,12 @@ public class SearchCDView extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        HtmlFragments ewfr;
+        HtmlFragments htmlFragments = new HtmlFragments();
+        
+        htmlFragments.printHeader(out, "Search Disks");
+        htmlFragments.printFlotingButton(out);
+        htmlFragments.printForm(out, "SearchCDResultView", "SEARCH DISKS", "Search");
+        htmlFragments.printFooter(out);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

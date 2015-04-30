@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public interface CompactDiskDAO {
     public ArrayList<CompactDisk> getAll();
     public CompactDisk getByID(int id);
+    public ArrayList<CompactDisk> searchCD(CompactDisk compact_disk);
     public boolean addCompactDisk(CompactDisk compact_disk);
     public boolean updateCompactDisk(CompactDisk compact_disk);
     public boolean deleteCompactDisk(int disk_id);

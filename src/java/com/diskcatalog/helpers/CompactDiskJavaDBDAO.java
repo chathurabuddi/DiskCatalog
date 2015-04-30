@@ -36,6 +36,24 @@ public class CompactDiskJavaDBDAO implements CompactDiskDAO {
     }
 
     @Override
+    public ArrayList<CompactDisk> searchCD(CompactDisk compact_disk) {
+        
+        // Since price and year are numbers we cant use as same way other fields doese.
+        // Only if it is empty, the string will be repacced with %%.
+        // Otherwise search with exact number rather than a part of number.
+        String price = "".equals(compact_disk.getDiskPrice().replaceAll("\\s+",""))?"%%":compact_disk.getDiskPrice();
+        String year = "".equals(compact_disk.getDiskYear().replaceAll("\\s+",""))?"%%":compact_disk.getDiskYear();
+        
+        String query = "SELECT * FROM COMPACTDISK WHERE "
+                + "DISK_TITLE LIKE '%" + compact_disk.getDiskTitle() + "%' AND "
+                + "DISK_ARTIST LIKE '%" + compact_disk.getDiskArtist() + "%' AND "
+                + "DISK_COUNTRY LIKE '%" + compact_disk.getDiskCountry() + "%' AND "
+                + "DISK_PRICE LIKE '" + price+ "' AND "
+                + "DISK_YEAR LIKE '" + year+ "'";
+        return executeFetchQuery(query);
+    }
+
+    @Override
     public boolean addCompactDisk(CompactDisk compact_disk) {
         String query = "INSERT INTO COMPACTDISK(DISK_TITLE,DISK_ARTIST,DISK_COUNTRY,DISK_PRICE,DISK_YEAR) "
                 + "VALUES('" + compact_disk.getDiskTitle() + "','" + compact_disk.getDiskArtist() + "','"

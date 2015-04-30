@@ -28,6 +28,10 @@
         <servlet-name>SearchCDView</servlet-name>
         <servlet-class>com.diskcatalog.servlets.SearchCDView</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchCDResultView</servlet-name>
+        <servlet-class>com.diskcatalog.servlets.SearchCDResultView</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCDView</servlet-name>
         <url-pattern>/AddCDView</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>SearchCDView</servlet-name>
         <url-pattern>/SearchCDView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchCDResultView</servlet-name>
+        <url-pattern>/SearchCDResultView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
