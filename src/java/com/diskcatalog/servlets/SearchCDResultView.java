@@ -47,7 +47,7 @@ public class SearchCDResultView extends HttpServlet {
         
         HtmlFragments htmlFragments = new HtmlFragments();
         htmlFragments.printHeader(out, "Search Results");
-        htmlFragments.printFlotingButton(out);
+        htmlFragments.printFloatingButton(out);
         
         CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
         htmlFragments.printTable(out, compactDiskDAO.searchCD(compactDisk));

@@ -1,19 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.diskcatalog.helpers;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
- *
  * @author CHATHURA
+ * 
+ * HtmlFragments class to reduce the redundant codes in servlets.
  */
 public class HtmlFragments {
-
+    
+    /**
+     * Prints the HTML header with the navigation bar.
+     * This fragment should be used in the top of the page and
+     * it is necessary to use the printFooter() method at the bottom of the page.
+     * @param out PrintWriter object that used in current servlet
+     * @param title String title of the page
+     */
     public void printHeader(PrintWriter out, String title) {
         StringBuffer header = new StringBuffer();
 
@@ -51,12 +54,22 @@ public class HtmlFragments {
 
         out.print(header);
     }
-
+    
+    /**
+     * Prints the HTML header with the navigation bar. HTML title will not be set.
+     * This fragment should be used in the top of the page and
+     * it is necessary to use the printFooter() method at the bottom of the servlet.
+     * @param out PrintWriter object that used in current servlet
+     */
     public void printHeader(PrintWriter out) {
         printHeader(out, null);
     }
-
-    public void printFlotingButton(PrintWriter out) {
+    
+    /**
+     * Prints the HTML code fragment to show a floating home button
+     * @param out PrintWriter object that used in current servlet
+     */
+    public void printFloatingButton(PrintWriter out) {
         StringBuffer floting_button = new StringBuffer();
 
         floting_button.append("<div class=\"container\">");
@@ -67,7 +80,16 @@ public class HtmlFragments {
 
         out.print(floting_button);
     }
-
+    
+    /**
+     * Prints a HTML form with given parameters.
+     * Form will be populated automatically with values from given CompactDisk object
+     * @param out PrintWriter object that used in current servlet
+     * @param form_action String path to a servlet where the filled values should be submitted
+     * @param title String title of the form
+     * @param button_lable String label should be displayed on the submit button
+     * @param compactdisk CompactDisk object to get values to populate the form
+     */
     public void printForm(PrintWriter out, String form_action, String title, String button_lable, CompactDisk compactdisk) {
         StringBuffer cd_form = new StringBuffer();
 
@@ -119,11 +141,24 @@ public class HtmlFragments {
         out.print(cd_form);
     }
 
+    /**
+     * Prints a empty HTML form with given parameters.
+     * @param out PrintWriter object that used in current servlet
+     * @param form_action String path to a servlet where the filled values should be submitted
+     * @param title String title of the form
+     * @param button_lable String label should be displayed on the submit button
+     */
     public void printForm(PrintWriter out, String form_action, String title, String button_lable) {
         CompactDisk compact_disk = new CompactDisk();
         printForm(out, form_action, title, button_lable, compact_disk);
     }
 
+    /**
+     * Prints a alert message when page loading with given parameters
+     * @param out PrintWriter object that used in current servlet
+     * @param message String message that should be displayed on the alert
+     * @param delay Integer alert display time in milliseconds 
+     */
     public void printAlert(PrintWriter out, String message, int delay) {
         StringBuffer alert = new StringBuffer();
 
@@ -136,6 +171,12 @@ public class HtmlFragments {
         out.println(alert);
     }
 
+    /**
+     * Show the CompactDisk data with a responsive table.
+     * Non essential fields will be hides on small screens.
+     * @param out PrintWriter object that used in current servlet
+     * @param dataSet ArrayList containing CompactDisks which should be displayed
+     */
     public void printTable(PrintWriter out, ArrayList<CompactDisk> dataSet) {
         StringBuffer table = new StringBuffer();
 
@@ -168,6 +209,12 @@ public class HtmlFragments {
         out.println(table);
     }
 
+    /**
+     * Prints the HTML footer with external JavaScript files.
+     * This fragment should be used in the bottom of the page and
+     * it is necessary to use the printHeader() method at the top of the page.
+     * @param out PrintWriter object that used in current servlet
+     */
     public void printFooter(PrintWriter out) {
         StringBuffer footer = new StringBuffer();
 

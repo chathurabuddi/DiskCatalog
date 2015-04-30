@@ -36,7 +36,7 @@ public class SearchCDView extends HttpServlet {
         HtmlFragments htmlFragments = new HtmlFragments();
         
         htmlFragments.printHeader(out, "Search Disks");
-        htmlFragments.printFlotingButton(out);
+        htmlFragments.printFloatingButton(out);
         htmlFragments.printForm(out, "SearchCDResultView", "SEARCH DISKS", "Search");
         htmlFragments.printFooter(out);
     }

@@ -39,7 +39,7 @@ public class UpdateCDView extends HttpServlet {
         HtmlFragments htmlFragments = new HtmlFragments();
 
         htmlFragments.printHeader(out, "Update Disk");
-        htmlFragments.printFlotingButton(out);
+        htmlFragments.printFloatingButton(out);
         
         CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
         CompactDisk compactDisk = compactDiskDAO.getByID(Integer.parseInt(request.getParameter("diskid")));

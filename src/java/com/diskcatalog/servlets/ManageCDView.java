@@ -38,7 +38,7 @@ public class ManageCDView extends HttpServlet {
         HtmlFragments htmlFragments = new HtmlFragments();
         
         htmlFragments.printHeader(out, "Manage Disks");
-        htmlFragments.printFlotingButton(out);
+        htmlFragments.printFloatingButton(out);
 
         CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
         htmlFragments.printTable(out, compactDiskDAO.getAll());

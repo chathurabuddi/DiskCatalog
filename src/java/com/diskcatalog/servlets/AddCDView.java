@@ -37,7 +37,7 @@ public class AddCDView extends HttpServlet {
         HtmlFragments htmlFragments = new HtmlFragments();
 
         htmlFragments.printHeader(out, "Add New Disk");
-        htmlFragments.printFlotingButton(out);
+        htmlFragments.printFloatingButton(out);
         htmlFragments.printForm(out, "AddCD", "ADD NEW DISK", "Submit");
         if (request.getAttribute("alert") != null) {
             htmlFragments.printAlert(out, request.getAttribute("alert").toString(), 4000);
