@@ -9,6 +9,7 @@ import com.diskcatalog.helpers.CompactDisk;
 import com.diskcatalog.helpers.CompactDiskDAO;
 import com.diskcatalog.helpers.CompactDiskJavaDBDAO;
 import com.diskcatalog.helpers.HtmlFragments;
+import com.diskcatalog.helpers.Validate;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,7 +36,7 @@ public class UpdateCD extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         CompactDisk compactDisk = new CompactDisk();
         compactDisk.setDiskId(Integer.parseInt(request.getParameter("id")));
         compactDisk.setDiskTitle(request.getParameter("title"));
@@ -43,12 +44,16 @@ public class UpdateCD extends HttpServlet {
         compactDisk.setDiskCountry(request.getParameter("country"));
         compactDisk.setDiskPrice(request.getParameter("price"));
         compactDisk.setDiskYear(request.getParameter("year"));
-        
-        CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
-        if(compactDiskDAO.updateCompactDisk(compactDisk)){
-            request.setAttribute("alert", "Compact Disk was Successfully Updated");
-        }else{
-            request.setAttribute("alert", "Error Occured! Please Try Again later");
+
+        if (Validate.isValid(compactDisk)) {
+            CompactDiskDAO compactDiskDAO = new CompactDiskJavaDBDAO();
+            if (compactDiskDAO.updateCompactDisk(compactDisk)) {
+                request.setAttribute("alert", "Compact Disk was Successfully Updated");
+            } else {
+                request.setAttribute("alert", "Error Occured! Please Try Again later");
+            }
+        } else {
+            request.setAttribute("alert", "Error Occured! " + Validate.getValidationMessage(compactDisk));
         }
         request.getRequestDispatcher("ManageCDView").forward(request, response);
     }

@@ -93,7 +93,7 @@
     #cd-form{
         padding-left: 40px;
         padding-right: 40px;
-    }
+}
 }
 
 table{
@@ -113,8 +113,6 @@ table.responsive-table thead{
 table{
     margin-top: 40px;
 }
-
-
 
 @media (max-width: 600px) { /* Small Devices */
     .hide-xs{
