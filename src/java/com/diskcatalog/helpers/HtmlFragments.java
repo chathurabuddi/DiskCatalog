@@ -133,7 +133,7 @@ public class HtmlFragments {
 
         cd_form.append("<div class=\"row\"><div class=\"input-field col s12\">");
         cd_form.append("<button class=\"btn teal darken-2 waves-effect waves-light right\" type=\"submit\">");
-        cd_form.append("Submit<i class=\"mdi-content-send right\"></i></button>");
+        cd_form.append(button_lable).append("<i class=\"mdi-content-send right\"></i></button>");
         cd_form.append("</div></div>");
 
         cd_form.append("</form></div></div></div></div></div>");
